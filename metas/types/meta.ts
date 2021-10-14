@@ -1,12 +1,12 @@
 import { Patch } from './patch';
 
-interface Slot {
+export interface Slot {
   name: string;
   replacement: any;
   replacementFn?: (slotName: string, replacementStr: string) => string;
 }
 
-interface OptionalSlot extends Slot {
+export interface OptionalSlot extends Slot {
   picked: boolean;
 }
 
