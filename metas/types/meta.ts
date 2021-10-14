@@ -14,6 +14,7 @@ interface MetaItem {
   name: string;
   slots: Slot[];
   optionalSlots?: OptionalSlot[];
+  effects?: Patch[];
 }
 
 export interface Meta {
