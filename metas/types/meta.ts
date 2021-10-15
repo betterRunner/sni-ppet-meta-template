@@ -10,7 +10,7 @@ export interface OptionalSlot extends Slot {
   picked: boolean;
 }
 
-interface MetaItem {
+export interface MetaItem {
   name: string;
   slots: Slot[];
   optionalSlots?: OptionalSlot[];
