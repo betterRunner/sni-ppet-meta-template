@@ -15,7 +15,7 @@ export default {
         {
           name: "type",
           replacement: "",
-          replacementFn: (slotName: string) => upperFirstLetter(slotName),
+          replacementFn: (_: string, replacement: string) => upperFirstLetter(replacement),
         },
         {
           name: "name",
@@ -41,7 +41,7 @@ export default {
         {
           name: "type",
           replacement: "",
-          replacementFn: (slotName: string) => upperFirstLetter(slotName),
+          replacementFn: (_: string, replacement: string) => upperFirstLetter(replacement),
         },
         {
           name: "enum",
