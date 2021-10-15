@@ -2,7 +2,7 @@ import { Meta } from "../types/meta";
 
 export default {
   matchTag: "SchemaField",
-  tpl: `<SchemaField.$(type) $(name) $(title) />
+  tpl: `<SchemaField.$(type) $(name) $(x-decorator) $(x-component-props) />
 </SchemaField>`,
   items: [
     {
@@ -15,7 +15,7 @@ export default {
             wrapperCol: 27,
           },
           replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={{${replacement}}}`,
+            `${slotName}={${replacement}}`,
         },
       ],
       optionalSlots: [],

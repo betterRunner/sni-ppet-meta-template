@@ -7,7 +7,7 @@ function upperFirstLetter(str: string) {
 
 export default {
   matchTag: "SchemaField",
-  tpl: `<SchemaField.$(type) $(name) $(title) />`,
+  tpl: `<SchemaField.$(type) $(name) $(x-decorator) $(x-component-props) />`,
   items: [
     {
       name: "Input",
@@ -30,7 +30,7 @@ export default {
             maxLength: 20,
           },
           replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={{${replacement}}}`,
+            `${slotName}={${replacement}}`,
         },
       ],
       optionalSlots: [],
@@ -47,7 +47,7 @@ export default {
           name: "enum",
           replacement: [],
           replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={{${replacement}}}`,
+            `${slotName}={${replacement}}`,
         },
       ],
       optionalSlots: [
@@ -57,7 +57,7 @@ export default {
             showTime: true,
           },
           replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={{${replacement}}}`,
+            `${slotName}={${replacement}}`,
           picked: false,
         },
       ],
