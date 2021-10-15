@@ -3,7 +3,7 @@ export enum PatchType {
   slot = "slot",
 }
 
-interface PatchImport {
+export interface PatchImport {
   type: PatchType;
   content: string;
   source: string;
@@ -15,7 +15,7 @@ type ReplacementItem = string; // replace value of `String.prototype.replace`
 type ReplacementFn = (slots: string[]) => string; // replace function of `String.prototype.replace`
 type Replacement = ReplacementItem | ReplacementFn;
 
-interface PatchSlot {
+export interface PatchSlot {
   type: PatchType;
   regex: RegExp; // the regex to find the slot
   replacement: Replacement;
