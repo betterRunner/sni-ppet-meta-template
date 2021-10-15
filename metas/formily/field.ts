@@ -21,7 +21,7 @@ export default {
           name: "name",
           replacement: SPECIAL_TAG_MAP.random,
           replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}="${replacement}"`,
+            `${slotName}=${replacement}`,
         },
         {
           name: "x-component-props",
@@ -68,7 +68,7 @@ export default {
       name: "x-decorator",
       replacement: "FormItem",
       replacementFn: (slotName: string, replacement: string) =>
-        `${slotName}="${replacement}"`,
+        `${slotName}=${replacement}`,
     },
   ],
 } as Meta;

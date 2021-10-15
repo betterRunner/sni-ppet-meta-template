@@ -26,7 +26,7 @@ export default {
       name: "x-decorator",
       replacement: "FormItem",
       replacementFn: (slotName: string, replacement: string) =>
-        `${slotName}="${replacement}"`,
+        `${slotName}=${replacement}`,
     },
     {
       name: "type",
