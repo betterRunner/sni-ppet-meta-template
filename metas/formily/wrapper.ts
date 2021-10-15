@@ -9,13 +9,17 @@ export default {
       name: "FormLayout",
       slots: [
         {
+          name: "x-component",
+          replacementFn: ({ item }) => item?.name,
+        },
+        {
           name: "x-component-props",
           replacement: {
             labelCol: 5,
             wrapperCol: 27,
           },
-          replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={${replacement}}`,
+          replacementFn: ({ slotName, replacementStr }) =>
+            `${slotName}={${replacementStr}}`,
         },
       ],
       optionalSlots: [],
@@ -25,12 +29,12 @@ export default {
     {
       name: "x-decorator",
       replacement: "FormItem",
-      replacementFn: (slotName: string, replacement: string) =>
-        `${slotName}=${replacement}`,
+      replacementFn: ({ slotName, replacementStr }) =>
+        `${slotName}=${replacementStr}`,
     },
     {
       name: "type",
-      replacement: "void",
+      replacement: "Void",
     },
   ],
 } as Meta;

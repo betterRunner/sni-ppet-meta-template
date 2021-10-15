@@ -1,10 +1,6 @@
 import { Meta } from "../types/meta";
 import { SPECIAL_TAG_MAP } from "../constants";
 
-function upperFirstLetter(str: string) {
-  return `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`;
-}
-
 export default {
   matchTag: "SchemaField",
   tpl: `<SchemaField.$(type) $(name) $(x-decorator) $(x-component-props) />`,
@@ -14,14 +10,13 @@ export default {
       slots: [
         {
           name: "type",
-          replacement: "",
-          replacementFn: (_: string, replacement: string) => upperFirstLetter(replacement),
+          replacement: "String",
         },
         {
           name: "name",
           replacement: SPECIAL_TAG_MAP.random,
-          replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}=${replacement}`,
+          replacementFn: ({ slotName, replacementStr }) =>
+            `${slotName}=${replacementStr}`,
         },
         {
           name: "x-component-props",
@@ -29,8 +24,8 @@ export default {
             placeholder: "",
             maxLength: 20,
           },
-          replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={${replacement}}`,
+          replacementFn: ({ slotName, replacementStr }) =>
+            `${slotName}={${replacementStr}}`,
         },
       ],
       optionalSlots: [],
@@ -40,14 +35,13 @@ export default {
       slots: [
         {
           name: "type",
-          replacement: "",
-          replacementFn: (_: string, replacement: string) => upperFirstLetter(replacement),
+          replacement: "String",
         },
         {
           name: "enum",
           replacement: [],
-          replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={${replacement}}`,
+          replacementFn: ({ slotName, replacementStr }) =>
+            `${slotName}={${replacementStr}}`,
         },
       ],
       optionalSlots: [
@@ -56,8 +50,8 @@ export default {
           replacement: {
             showTime: true,
           },
-          replacementFn: (slotName: string, replacement: string) =>
-            `${slotName}={${replacement}}`,
+          replacementFn: ({ slotName, replacementStr }) =>
+            `${slotName}={${replacementStr}}`,
           picked: false,
         },
       ],
@@ -65,10 +59,15 @@ export default {
   ],
   commonSlots: [
     {
+      name: "x-componnet",
+      replacement: "",
+      replacementFn: ({ item }) => item?.name,
+    },
+    {
       name: "x-decorator",
       replacement: "FormItem",
-      replacementFn: (slotName: string, replacement: string) =>
-        `${slotName}=${replacement}`,
+      replacementFn: ({ slotName, replacementStr }) =>
+        `${slotName}=${replacementStr}`,
     },
   ],
 } as Meta;

@@ -3,7 +3,7 @@ import { Patch } from './patch';
 export interface Slot {
   name: string;
   replacement: any;
-  replacementFn?: (slotName: string, replacementStr: string) => string;
+  replacementFn?: (context: { slotName?: string, replacementStr?: string, item?: MetaItem }) => string;
 }
 
 export interface OptionalSlot extends Slot {
