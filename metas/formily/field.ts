@@ -3,7 +3,7 @@ import { SPECIAL_TAG_MAP } from "../constants";
 
 export default {
   matchTag: "SchemaField",
-  tpl: `<SchemaField.$(type) $(name) $(x-decorator) $(x-component-props) />`,
+  tpl: `<SchemaField.$(type) $(x-decorator) $(x-component-props) />`,
   items: [
     {
       name: "Input",
