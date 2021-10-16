@@ -2,7 +2,7 @@ import { Meta } from "../types/meta";
 
 export default {
   matchTag: "SchemaField",
-  tpl: `<SchemaField.$(type) $(name) $(x-decorator) $(x-component-props) />
+  tpl: `<SchemaField.$(type) $(x-decorator) $(x-component-props) />
 </SchemaField>`,
   items: [
     {

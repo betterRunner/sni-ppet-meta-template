@@ -35,7 +35,8 @@ export default {
       slots: [
         {
           name: "type",
-          replacement: "String",
+          replacement: "",
+          replacementFn: () => "String",
         },
         {
           name: "enum",
