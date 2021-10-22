@@ -1,4 +1,4 @@
-import { Meta } from "../types/meta";
+import { Meta } from "../../types/meta";
 import fieldMeta from "./field";
 import wrapperMeta from "./wrapper";
 

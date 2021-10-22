@@ -1,4 +1,4 @@
-import { Meta } from "../types/meta";
+import { Meta } from "../../types/meta";
 import { SPECIAL_TAG_MAP } from "../constants";
 
 export default {

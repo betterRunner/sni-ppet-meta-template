@@ -1,4 +1,4 @@
-import { Meta } from "../types/meta";
+import { Meta } from "../../types/meta";
 
 export default {
   matchTag: "SchemaField",
