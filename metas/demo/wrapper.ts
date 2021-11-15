@@ -35,6 +35,7 @@ export default {
     {
       name: "type",
       replacement: "Void",
+      raw: true,
     },
   ],
 } as Meta;

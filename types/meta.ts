@@ -4,6 +4,7 @@ export interface Slot {
   name: string;
   replacement: any;
   replacementFn?: (context: { slotName?: string, replacementStr?: string, item?: MetaItem }) => string;
+  raw?: boolean;
 }
 
 export interface OptionalSlot extends Slot {
