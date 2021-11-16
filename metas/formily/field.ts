@@ -2,8 +2,8 @@ import { Meta } from "../../types/meta";
 import { SPECIAL_TAG_MAP } from "../../constants";
 
 export default {
-  matchTag: "SchemaField",
-  tpl: `<SchemaField.$(type) $(x-decorator) $(x-component-props) />`,
+  matchTag: "formily_field",
+  tpl: `<SchemaField.$(type) $(name) $(title) $(x-component) $(x-decorator) $(x-component-props) />`,
   items: [
     {
       name: "Input",
@@ -11,12 +11,7 @@ export default {
         {
           name: "type",
           replacement: "String",
-        },
-        {
-          name: "name",
-          replacement: SPECIAL_TAG_MAP.random,
-          replacementFn: ({ slotName, replacementStr }) =>
-            `${slotName}=${replacementStr}`,
+          raw: true,
         },
         {
           name: "x-component-props",
@@ -31,18 +26,36 @@ export default {
       optionalSlots: [],
     },
     {
-      name: "DatePicker",
+      name: "Select",
+      tpl: `<SchemaField.$(type) $(name) $(title) $(x-component) $(x-decorator) $(x-component-props) $(enum) />`,
       slots: [
         {
           name: "type",
-          replacement: "",
-          replacementFn: () => "String",
+          replacement: "String",
+          raw: true,
+        },
+        {
+          name: "x-component-props",
+          replacement: {},
+          replacementFn: ({ slotName, replacementStr }) =>
+            `${slotName}={${replacementStr}}`,
         },
         {
           name: "enum",
           replacement: [],
           replacementFn: ({ slotName, replacementStr }) =>
             `${slotName}={${replacementStr}}`,
+        },
+      ],
+      optionalSlots: [],
+    },
+    {
+      name: "DatePicker",
+      slots: [
+        {
+          name: "type",
+          replacement: "String",
+          raw: true,
         },
       ],
       optionalSlots: [
@@ -60,9 +73,19 @@ export default {
   ],
   commonSlots: [
     {
-      name: "x-componnet",
+      name: "name",
+      replacement: SPECIAL_TAG_MAP.random,
+      replacementFn: ({ slotName, replacementStr }) =>
+        `${slotName}=${replacementStr}`,
+    },
+    {
+      name: "title",
+      replacementFn: ({ slotName, item }) => `${slotName}="${item?.name}"`,
+    },
+    {
+      name: "x-component",
       replacement: "",
-      replacementFn: ({ item }) => item?.name,
+      replacementFn: ({ slotName, item }) => `${slotName}="${item?.name}"`,
     },
     {
       name: "x-decorator",

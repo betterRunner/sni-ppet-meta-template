@@ -14,6 +14,7 @@ export interface OptionalSlot extends Slot {
 export interface MetaItem {
   name: string;
   slots: Slot[];
+  tpl?: string;
   optionalSlots?: OptionalSlot[];
   effects?: Patch[];
 }

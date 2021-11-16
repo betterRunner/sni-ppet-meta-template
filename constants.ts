@@ -1,3 +1,3 @@
 export const SPECIAL_TAG_MAP = {
-  random: Symbol("random").toString(),
+  random: "_sni-ppet-random_",
 };

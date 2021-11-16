@@ -1,17 +1,13 @@
 import { Meta } from "../../types/meta";
 
 export default {
-  matchTag: "SchemaField",
-  tpl: `<SchemaField.$(type) $(x-decorator) $(x-component-props) />
-</SchemaField>`,
+  matchTag: "formily_wrapper",
+  tpl: `<SchemaField.$(type) $(x-component) $(x-component-props)>
+</SchemaField.$(type)>`,
   items: [
     {
       name: "FormLayout",
       slots: [
-        {
-          name: "x-component",
-          replacementFn: ({ item }) => item?.name,
-        },
         {
           name: "x-component-props",
           replacement: {
@@ -24,17 +20,31 @@ export default {
       ],
       optionalSlots: [],
     },
+    {
+      name: "FormGrid",
+      slots: [
+        {
+          name: "x-component-props",
+          replacement: {
+            minColumns: 2,
+            maxColumns: 2,
+          },
+          replacementFn: ({ slotName, replacementStr }) =>
+            `${slotName}={${replacementStr}}`,
+        },
+      ],
+      optionalSlots: [],
+    },
   ],
   commonSlots: [
     {
-      name: "x-decorator",
-      replacement: "FormItem",
-      replacementFn: ({ slotName, replacementStr }) =>
-        `${slotName}=${replacementStr}`,
+      name: "x-component",
+      replacementFn: ({ slotName, item }) => `${slotName}="${item?.name}"`,
     },
     {
       name: "type",
       replacement: "Void",
+      raw: true,
     },
   ],
 } as Meta;
